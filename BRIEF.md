@@ -24,7 +24,7 @@ never edits, reorders or ticks off a line that is already there.
 dotnet build                                       # build everything
 dotnet build -c Release                            # release build
 dotnet test                                        # run all tests (see Tests - none yet)
-dotnet run --project src/Tasks -- get-config-path  # run the CLI
+dotnet run --project src/Tasks -- config path      # run the CLI
 dotnet pack -c Release                             # produce the global tool into ./release
 ```
 
@@ -45,8 +45,9 @@ Everything the tool stores lives in one hidden folder named after the package id
 |---|---|
 | `%USERPROFILE%\.grdev.tasks-cli\config.json` | The monitored folders and their scan rules |
 
-The file is created with defaults on first use. `tasks get-config-path` prints its location;
-`tasks folders add <path> [--name <name>]` is the only command that writes to it. Per-folder
+The file is created with defaults on first use. `tasks config path` prints its location and
+`tasks config edit` opens it in `$VISUAL`/`$EDITOR`; `tasks folders add <path> [--name <name>]`
+is the only other command that writes to it. Per-folder
 settings — file patterns, todo prefixes, the due-date/tag/project/priority regexes, excluded
 folders — are hand-edited there, since nothing exposes them as options.
 
@@ -115,6 +116,13 @@ file source in rather than reaching for them.
   user hand-edits it.
 
 ## Decisions
+
+### 2026-09-08
+
+- `get-config-path` was replaced with a `config` command group — `config path` (same
+  behaviour) and a new `config edit`, which opens the file in `$VISUAL`/`$EDITOR`, per the
+  refreshed grdev standard requiring at least these two subcommands on every tool that reads
+  a config file.
 
 ### 2026-08-13
 

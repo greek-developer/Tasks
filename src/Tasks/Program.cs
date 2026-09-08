@@ -21,13 +21,7 @@ namespace Tasks
 
             var rootCommand = new RootCommand("tasks: text-based todo management CLI tool");
 
-            var getConfigPathCommand = new Command(
-                "get-config-path",
-                "Displays the full path to the config file (in user's profile)");
-
-            getConfigPathCommand.SetAction(_ => Console.WriteLine(ConfigurationManager.GetConfigPath()));
-
-            rootCommand.Add(getConfigPathCommand);
+            rootCommand.Add(ConfigCommand.Create());
             rootCommand.Add(VersionCommand.Create());
             rootCommand.Add(SkillCommand.Create());
 

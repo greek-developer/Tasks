@@ -30,9 +30,10 @@ Add one or more folders for the tool to monitor
 
 `tasks folders add <path> [--name <name>]`
 
-Folder options (file patterns to scan, tasks prefixes, etc) can be configured in the configuration file. Use `get-config-path` to get the path to the configuration file.
+Folder options (file patterns to scan, tasks prefixes, etc) can be configured in the configuration file. Use `config path` to get the path to the configuration file, or `config edit` to open it directly.
 
-`tasks get-config-path`
+`tasks config path`
+`tasks config edit`
 
 ## Available Commands
 
@@ -58,7 +59,8 @@ Folder options (file patterns to scan, tasks prefixes, etc) can be configured in
 - `folders add <path> [--name <name>]` — Add a monitored folder.
 
 ### Tool Commands
-- `get-config-path` — Print the full path to the config file.
+- `config path` — Print the full path to the config file.
+- `config edit` — Open the config file in `$VISUAL`/`$EDITOR`.
 - `version` — Print the version, commit and build time of this build, read from `ProductionVersion.json`.
 - `skill` — Print the agent guide embedded in the tool. `tasks skill > SKILL.md` reproduces [`skills/tasks/SKILL.md`](skills/tasks/SKILL.md) byte for byte.
 

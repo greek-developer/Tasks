@@ -60,7 +60,8 @@ are skipped. All of this is per-folder configuration — see the config file bel
 ```bash
 tasks folders list                       # what is monitored today
 tasks folders add <path> [--name <name>] # start monitoring a folder
-tasks get-config-path                    # the config file, for the patterns above
+tasks config path                        # the config file, for the patterns above
+tasks config edit                        # open it in $VISUAL/$EDITOR
 ```
 
 Every monitored folder is scanned and the results are pooled into one list. Two things worth
