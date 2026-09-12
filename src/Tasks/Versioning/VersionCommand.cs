@@ -33,8 +33,11 @@ internal static class VersionCommand
             return 1;
         }
 
-        // The result is the four lines and nothing else, so it can be read by a machine.
+        // The version block is the four lines and nothing else, so it can be read by a
+        // machine; the update hint follows a blank line after it.
         Console.Out.WriteLine(version.Value!.ToDisplay());
+        Console.Out.WriteLine();
+        Console.Out.WriteLine("To update: dotnet tool update -g grdev.tasks-cli");
         return 0;
     }
 }
